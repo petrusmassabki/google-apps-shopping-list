@@ -12,13 +12,15 @@ function include(filename) {
 }
 
 function accessSpreadsheet() {
-    var data = workingSheet.getDataRange().getValues();
 
-    return data;
+    if(workingSheet.getLastRow() > 0) {
+        return workingSheet.getDataRange().getValues();
+    } else {
+        return [];
+    }
 }
 
 function addToSpreadsheet(row) {
-    Logger.log(row);
     workingSheet.appendRow(row);
 }
 
