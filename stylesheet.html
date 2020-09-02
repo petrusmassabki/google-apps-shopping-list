@@ -1,0 +1,159 @@
+<style>
+
+:root {
+    font-size: 100%;
+}
+
+* {
+    box-sizing: border-box;
+    font-family: 'Baloo Tamma 2', cursive;
+    font-weight: 400;
+    font-size: 3.5rem;
+    padding: 0;
+    color: #991f00;
+    margin: 0;
+}
+
+body {
+    background-color: rgb(245, 245, 245);
+    overflow-x: hidden;
+}
+
+@media (min-width: 1100px) {
+    :root {
+        font-size: 40%;
+    }
+}
+
+#page-container {
+    width: 100vw;
+    height: 100vh;
+}
+
+#container-input {
+    width: 100vw;
+    max-width: 800px;
+    margin: 2rem auto 0;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+h1 {
+    font-size: 5rem;
+    text-align: center;
+}
+
+.form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+}
+
+.form-fields {
+    display: flex;
+    justify-content: space-between;
+}
+
+.item-section, .qty-section {
+    display: flex;
+    flex-direction: column;
+}
+
+.item-section {
+    width: 75%;
+}
+
+.qty-section {
+    width: 20%;
+}
+
+#qty {
+    text-align: center;
+}
+
+.form input {
+    padding: 0.5rem;
+    width: 100%;
+    line-height: 8rem;
+    border: 2px solid;
+    border-radius: 5px;
+    outline: 0;
+}
+
+.form button {
+  vertical-align: middle;
+    padding: 0.5rem;
+    width: 100%;
+    line-height: 8rem;
+    margin: 2rem 0;
+    border: 0;
+    border-radius: 10px;
+    background-color: rgb(238,175,75);
+    outline: 0;
+    color: white;
+    cursor: pointer;
+}
+
+.form button:active {
+    background-color: #f5bb3d;
+}
+
+#container-list {
+    touch-action: manipulation;
+    width: 100vw;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+#shopping-list {
+    list-style-position: inside;
+    list-style-type: '- ';
+    width: 100%;
+}
+
+#shopping-list li {
+    color: rgb(30, 30, 30);
+    line-height: 8rem;
+    border-bottom: 1px solid lightgrey;
+}
+
+.invisible {
+    display: none;
+}
+
+.fade-out {
+    text-decoration: line-through solid darkred;
+    transition: 0.5s;
+}
+
+#remove-item {
+    margin: 2rem 0;
+    font-size: 2rem;
+    color: #b32400;
+}
+
+#footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: rgb(245, 245, 245);
+    border-top: 1px solid #D8D8D8;
+    margin-top: auto;
+    padding: 4rem 0;
+}
+
+#footer-image {
+    color: red;
+    height: 20rem;
+}
+
+#icon-license,
+#icon-license a {
+    margin: 1rem 0;
+    text-align: center;
+    font-size: 1rem;
+}
+
+</style>

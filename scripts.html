@@ -1,0 +1,78 @@
+<script>
+
+var shoppingList = document.querySelector("#shopping-list");
+var addToListButton = document.querySelector("#add-button");
+var inputItem = document.querySelector("#item");
+var inputQty = document.querySelector("#qty");
+
+google.script.run.withSuccessHandler(loadShoppingData).accessSpreadsheet();
+addToListButton.addEventListener("click", addItem);
+shoppingList.addEventListener("dblclick", removeItem);
+inputItem.addEventListener("input", filterList);
+
+function createListItem(item, qty) {
+
+    var li = document.createElement("li");
+    li.textContent = item + " (" + qty + ")";
+    li.classList.add("list-item");
+
+    return li;
+}
+
+function loadShoppingData(shoppingData) {
+
+    if (shoppingData.length > 0) {
+        shoppingData.forEach(row => {
+            var itemLi = createListItem(row[0], row[1]);
+            shoppingList.appendChild(itemLi);
+        });
+    }
+}
+
+function addItem(event) {
+
+    event.preventDefault();
+    
+    if (inputItem.value.length > 0) {
+        var itemLi = createListItem(inputItem.value, inputQty.value);
+        shoppingList.appendChild(itemLi);
+        google.script.run.addToSpreadsheet([inputItem.value, inputQty.value]);
+        
+        var items = document.querySelectorAll(".list-item");
+        items.forEach(item => {
+            item.classList.remove("invisible");
+        });
+        inputItem.value = "";
+        inputQty.value = "1";
+    }
+}
+
+function filterList() {
+
+    var items = document.querySelectorAll(".list-item");
+    
+    if (inputItem.value.length > 0) {
+        items.forEach(item => {
+            var itemText = item.textContent;
+            var regularExpression = new RegExp(inputItem.value, "i");
+            if (regularExpression.test(itemText)) {
+                item.classList.remove("invisible");
+            } else {
+                item.classList.add("invisible");
+            }
+        });
+    } else {
+        items.forEach(item => {
+            item.classList.remove("invisible");
+        });
+    }
+}
+
+function removeItem(event) {
+
+    event.target.classList.add("fade-out");
+    setTimeout(function () { event.target.remove() }, 500);
+    google.script.run.removeFromSpreadsheet(event.target.textContent);
+}
+
+</script>

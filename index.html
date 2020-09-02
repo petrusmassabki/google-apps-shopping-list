@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, shrink-to-fit=no">
+    <base target="_top">
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+Tamma+2:wght@400;500&display=swap" rel="stylesheet">
+    <?!= include('stylesheet'); ?>
+</head>
+<body>
+    <div id="page-container">
+        <section id="container-input">
+            <h1>Shopping list</h1>
+            <form class="form">
+                <div class="form-fields">
+                    <div class="item-section">
+                        <label for="item">Item</label>
+                        <input name="item" type="text" id="item" required>
+                    </div>
+                    <div class="qty-section">
+                        <label for="qty">Qty.</label>
+                        <input name="qty" type="number" id="qty" value="1" required>
+                    </div>
+                </div>
+                <button id="add-button">Add to list</button>
+            </form>
+        </section>
+        <section id="container-list">
+            <ul id="shopping-list">
+            </ul>
+            <p id="remove-item">(Double-click over an item to remove it)</p>
+        </section>
+        <div id="footer">
+            <img id="footer-image" src="https://image.flaticon.com/icons/svg/135/135763.svg" alt="Groceries">
+            <div id="icon-license" >Icon made by <a href="https://www.flaticon.com/authors/smashicons" title="Smashicons">Smashicons</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+        </div>
+    </div>
+    <?!= include('scripts'); ?>
+</body>
+</html>
