@@ -15,7 +15,7 @@ This is a simple shopping list web app to be used in conjunction with Google She
 
 1. Copy the content of _src_ to corresponding files in a new Google Apps Script project
 2. Create a new Google Sheets spreadsheet and paste its URL where indicated at the _code.gs_ file:
-```
+```javascript
 // Insert the spreadsheet url and its name here
 var url = "Spreadsheet-URL";
 var spreadsheet = SpreadsheetApp.openByUrl(url);
